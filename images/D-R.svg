@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 750" width="100%" height="100%" style="font-family: 'Segoe UI', Arial, sans-serif; background-color: #f8f9fa;">
+  
+  <defs>
+    <!-- Standard Arrowhead -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#495057" />
+    </marker>
+    <!-- Residual Arrowhead (Orange) -->
+    <marker id="arrowhead-res" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e8590c" />
+    </marker>
+    <!-- Cross-Attention Arrowhead (Purple) -->
+    <marker id="arrowhead-cross" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6f42c1" />
+    </marker>
+    <!-- Positional Encoding Arrowhead (Green) -->
+    <marker id="arrowhead-pe" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#12b886" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="250" y="30" font-size="20" font-weight="bold" fill="#212529" text-anchor="middle">Transformer Decoder Block</text>
+  <text x="250" y="55" font-size="14" fill="#e8590c" text-anchor="middle">- - - Residual (Skip) Connections</text>
+
+  <!-- Nx Indicator -->
+  <text x="430" y="380" font-size="40" font-weight="bold" fill="#dee2e6" text-anchor="middle">N</text>
+  <text x="430" y="395" font-size="20" font-weight="bold" fill="#adb5bd" text-anchor="middle">x</text>
+
+  <!-- ========================================== -->
+  <!-- MAIN CONTAINER -->
+  <!-- ========================================== -->
+  <rect x="125" y="70" width="250" height="620" rx="10" fill="#f5f3ff" stroke="#6610f2" stroke-width="2" stroke-dasharray="5,5" />
+
+  <!-- Output Text -->
+  <text x="250" y="100" font-size="14" fill="#212529" text-anchor="middle" font-weight="bold">Output Probabilities</text>
+  <line x1="250" y1="110" x2="250" y2="130" stroke="#495057" stroke-width="2" marker-end="url(#arrowhead)" />
+
+  <!-- Softmax -->
+  <rect x="170" y="130" width="160" height="35" rx="5" fill="#b197fc" stroke="#5c3baa" stroke-width="1" />
+  <text x="250" y="153" font-size="14" fill="white" text-anchor="middle" font-weight="bold">Softmax</text>
+  <line x1="250" y1="165" x2="250" y2="185" stroke="#495057" stroke-width="2" marker-end="url(#arrowhead)" />
+
+  <!-- Linear -->
+  <rect x="170" y="185" width="160" height="35" rx="5" fill="#845ef7" stroke="#5c3baa" stroke-width="1" />
+  <text x="250" y="208" font-size="14" fill="white" text-anchor="middle" font-weight="bold">Linear Layer</text>
+  <line x1="250" y1="220" x2="250" y2="240" stroke="#495057" stroke-width="2" marker-end="url(#arrowhead)" />
+
+  <!-- Add & Norm 3 -->
+  <rect x="170" y="240" width="160" height="35" rx="5" fill="#ffe066" stroke="#fab005" stroke-width="1" />
+  <text x="250" y="263" font-size="14" fill="#495057" text-anchor="middle" font-weight="bold">Add &amp; Norm</text>
+  <line x1="250" y1="275" x2="250" y2="295" stroke="#495057" stroke-width="2" marker-end="url(#arrowhead)" />
+
+  <!-- Feed Forward -->
+  <rect x="170" y="295" width="160" height="45" rx="5" fill="#845ef7" stroke="#5c3baa" stroke-width="1" />
+  <text x="250" y="323" font-size="15" fill="white" text-anchor="middle" font-weight="bold">Feed Forward</text>
+  <line x1="250" y1="340" x2="250" y2="360" stroke="#495057" stroke-width="2" marker-end="url(#arrowhead)" />
+
+  <!-- Add & Norm 2 -->
+  <rect x="170" y="360" width="160" height="35" rx="5" fill="#ffe066" stroke="#fab005" stroke-width="1" />
+  <text x="250" y="383" font-size="14" fill="#495057" text-anchor="middle" font-weight="bold">Add &amp; Norm</text>
+  <line x1="250" y1="395" x2="250" y2="415" stroke="#495057" stroke-width="2" marker-end="url(#arrowhead)" />
+
+  <!-- Cross-Attention -->
+  <rect x="170" y="415" width="160" height="45" rx="5" fill="#9775fa" stroke="#5c3baa" stroke-width="1" />
+  <text x="250" y="435" font-size="14" fill="white" text-anchor="middle" font-weight="bold">Cross-Attention</text>
+  <text x="250" y="452" font-size="11" fill="white" text-anchor="middle">(Encoder-Decoder)</text>
+  <line x1="250" y1="460" x2="250" y2="480" stroke="#495057" stroke-width="2" marker-end="url(#arrowhead)" />
+
+  <!-- Add & Norm 1 -->
+  <rect x="170" y="480" width="160" height="35" rx="5" fill="#ffe066" stroke="#fab005" stroke-width="1" />
+  <text x="250" y="503" font-size="14" fill="#495057" text-anchor="middle" font-weight="bold">Add &amp; Norm</text>
+  <line x1="250" y1="515" x2="250" y2="535" stroke="#495057" stroke-width="2" marker-end="url(#arrowhead)" />
+
+  <!-- Masked Self-Attention -->
+  <rect x="170" y="535" width="160" height="45" rx="5" fill="#845ef7" stroke="#5c3baa" stroke-width="1" />
+  <text x="250" y="563" font-size="14" fill="white" text-anchor="middle" font-weight="bold">Masked Self-Attention</text>
+  <line x1="250" y1="580" x2="250" y2="600" stroke="#495057" stroke-width="2" marker-end="url(#arrowhead)" />
+
+  <!-- Output Embedding -->
+  <rect x="150" y="600" width="200" height="40" rx="5" fill="#868e96" stroke="#495057" stroke-width="1" />
+  <text x="250" y="625" font-size="14" fill="white" text-anchor="middle" font-weight="bold">Output Embedding</text>
+
+  <!-- Positional Encoding Injection -->
+  <rect x="370" y="600" width="90" height="40" rx="5" fill="#12b886" stroke="#087f5b" stroke-width="1" />
+  <text x="415" y="618" font-size="12" fill="white" text-anchor="middle" font-weight="bold">Positional</text>
+  <text x="415" y="632" font-size="12" fill="white" text-anchor="middle" font-weight="bold">Encoding</text>
+  <path d="M 370 620 L 350 620" fill="none" stroke="#12b886" stroke-width="2.5" marker-end="url(#arrowhead-pe)" />
+  <circle cx="350" cy="620" r="3" fill="#495057" />
+
+  <!-- ========================================== -->
+  <!-- INPUTS FROM ENCODER -->
+  <!-- ========================================== -->
+  <rect x="20" y="423" width="80" height="30" rx="5" fill="#4dabf7" stroke="#1976d2" stroke-width="1" />
+  <text x="60" y="442" font-size="12" fill="white" text-anchor="middle" font-weight="bold">K &amp; V</text>
+  <path d="M 100 438 L 170 438" fill="none" stroke="#6f42c1" stroke-width="3" stroke-dasharray="8,4" marker-end="url(#arrowhead-cross)" />
+  <text x="135" y="430" font-size="11" fill="#6f42c1" text-anchor="middle" font-weight="bold">From Encoder</text>
+
+  <!-- ========================================== -->
+  <!-- RESIDUAL CONNECTIONS -->
+  <!-- ========================================== -->
+  
+  <!-- RESIDUAL 1: Bypassing Masked Self-Attention -->
+  <path d="M 250 580 L 100 580 L 100 495 L 170 495" fill="none" stroke="#e8590c" stroke-width="2.5" stroke-dasharray="8,4" marker-end="url(#arrowhead-res)" />
+  <text x="75" y="540" font-size="13" fill="#e8590c" text-anchor="middle" font-weight="bold" transform="rotate(-90 75 540)">Residual</text>
+
+  <!-- RESIDUAL 2: Bypassing Cross-Attention -->
+  <path d="M 250 460 L 400 460 L 400 375 L 330 375" fill="none" stroke="#e8590c" stroke-width="2.5" stroke-dasharray="8,4" marker-end="url(#arrowhead-res)" />
+  <text x="425" y="420" font-size="13" fill="#e8590c" text-anchor="middle" font-weight="bold" transform="rotate(90 425 420)">Residual</text>
+
+  <!-- RESIDUAL 3: Bypassing Feed Forward -->
+  <path d="M 250 340 L 100 340 L 100 255 L 170 255" fill="none" stroke="#e8590c" stroke-width="2.5" stroke-dasharray="8,4" marker-end="url(#arrowhead-res)" />
+  <text x="75" y="300" font-size="13" fill="#e8590c" text-anchor="middle" font-weight="bold" transform="rotate(-90 75 300)">Residual</text>
+
+</svg>

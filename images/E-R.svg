@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 650" width="100%" height="100%" style="font-family: 'Segoe UI', Arial, sans-serif; background-color: #f8f9fa;">
+  
+  <defs>
+    <!-- Standard Arrowhead -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#495057" />
+    </marker>
+    <!-- Residual Arrowhead (Orange) -->
+    <marker id="arrowhead-res" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e8590c" />
+    </marker>
+    <!-- Positional Encoding Arrowhead -->
+    <marker id="arrowhead-pe" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#12b886" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="225" y="30" font-size="20" font-weight="bold" fill="#212529" text-anchor="middle">Transformer Encoder Block</text>
+  <text x="225" y="55" font-size="14" fill="#e8590c" text-anchor="middle">- - - Residual (Skip) Connections</text>
+
+  <!-- Nx Indicator (Shows it's stacked) -->
+  <text x="380" y="320" font-size="40" font-weight="bold" fill="#dee2e6" text-anchor="middle">N</text>
+  <text x="380" y="335" font-size="20" font-weight="bold" fill="#adb5bd" text-anchor="middle">x</text>
+
+  <!-- ========================================== -->
+  <!-- MAIN CONTAINER -->
+  <!-- ========================================== -->
+  <rect x="125" y="70" width="200" height="480" rx="10" fill="#e7f5ff" stroke="#004085" stroke-width="2" stroke-dasharray="5,5" />
+
+  <!-- Output Text -->
+  <text x="225" y="100" font-size="14" fill="#212529" text-anchor="middle" font-weight="bold">To next layer / Decoder</text>
+  <line x1="225" y1="110" x2="225" y2="130" stroke="#495057" stroke-width="2" marker-end="url(#arrowhead)" />
+
+  <!-- Add & Norm 2 -->
+  <rect x="145" y="130" width="160" height="35" rx="5" fill="#ffe066" stroke="#fab005" stroke-width="1" />
+  <text x="225" y="153" font-size="14" fill="#495057" text-anchor="middle" font-weight="bold">Add &amp; Norm</text>
+  <line x1="225" y1="165" x2="225" y2="185" stroke="#495057" stroke-width="2" marker-end="url(#arrowhead)" />
+
+  <!-- Feed Forward -->
+  <rect x="145" y="185" width="160" height="45" rx="5" fill="#4dabf7" stroke="#1976d2" stroke-width="1" />
+  <text x="225" y="213" font-size="15" fill="white" text-anchor="middle" font-weight="bold">Feed Forward</text>
+  <line x1="225" y1="230" x2="225" y2="250" stroke="#495057" stroke-width="2" marker-end="url(#arrowhead)" />
+
+  <!-- Add & Norm 1 -->
+  <rect x="145" y="250" width="160" height="35" rx="5" fill="#ffe066" stroke="#fab005" stroke-width="1" />
+  <text x="225" y="273" font-size="14" fill="#495057" text-anchor="middle" font-weight="bold">Add &amp; Norm</text>
+  <line x1="225" y1="285" x2="225" y2="305" stroke="#495057" stroke-width="2" marker-end="url(#arrowhead)" />
+
+  <!-- Multi-Head Self-Attention -->
+  <rect x="145" y="305" width="160" height="45" rx="5" fill="#4dabf7" stroke="#1976d2" stroke-width="1" />
+  <text x="225" y="333" font-size="15" fill="white" text-anchor="middle" font-weight="bold">Multi-Head Attention</text>
+  <line x1="225" y1="350" x2="225" y2="370" stroke="#495057" stroke-width="2" marker-end="url(#arrowhead)" />
+
+  <!-- Merged Input line (Embedding + PE) -->
+  <line x1="225" y1="440" x2="225" y2="460" stroke="#495057" stroke-width="2" marker-end="url(#arrowhead)" />
+  
+  <!-- Input Embedding -->
+  <rect x="125" y="460" width="200" height="40" rx="5" fill="#868e96" stroke="#495057" stroke-width="1" />
+  <text x="225" y="485" font-size="14" fill="white" text-anchor="middle" font-weight="bold">Input Embedding</text>
+
+  <!-- Positional Encoding Injection -->
+  <rect x="335" y="460" width="90" height="40" rx="5" fill="#12b886" stroke="#087f5b" stroke-width="1" />
+  <text x="380" y="478" font-size="12" fill="white" text-anchor="middle" font-weight="bold">Positional</text>
+  <text x="380" y="492" font-size="12" fill="white" text-anchor="middle" font-weight="bold">Encoding</text>
+  <!-- Arrow merging into main flow -->
+  <path d="M 335 480 L 325 480" fill="none" stroke="#12b886" stroke-width="2.5" marker-end="url(#arrowhead-pe)" />
+  <circle cx="325" cy="480" r="3" fill="#495057" />
+
+
+  <!-- ========================================== -->
+  <!-- RESIDUAL CONNECTIONS -->
+  <!-- ========================================== -->
+  
+  <!-- RESIDUAL 1: Bypassing Self-Attention -->
+  <!-- Starts at 375 (below Self-Attn), goes left, up, and right into Add & Norm 1 at 265 -->
+  <path d="M 225 375 L 100 375 L 100 265 L 145 265" fill="none" stroke="#e8590c" stroke-width="2.5" stroke-dasharray="8,4" marker-end="url(#arrowhead-res)" />
+  <text x="75" y="320" font-size="13" fill="#e8590c" text-anchor="middle" font-weight="bold" transform="rotate(-90 75 320)">Residual</text>
+
+  <!-- RESIDUAL 2: Bypassing Feed Forward -->
+  <!-- Starts at 250 (below FFN), goes right, up, and left into Add & Norm 2 at 145 -->
+  <path d="M 225 250 L 350 250 L 350 145 L 305 145" fill="none" stroke="#e8590c" stroke-width="2.5" stroke-dasharray="8,4" marker-end="url(#arrowhead-res)" />
+  <text x="375" y="200" font-size="13" fill="#e8590c" text-anchor="middle" font-weight="bold" transform="rotate(90 375 200)">Residual</text>
+
+</svg>
